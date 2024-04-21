@@ -1,0 +1,26 @@
+header {
+	background-color: $color-secundario;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	gap: 10px;
+	div {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+	img {
+		width: 30px;
+	}
+	@include breakpoint(md) {
+		flex-direction: row;
+	}
+	h1 {
+		font-size: 1.4rem;
+		@include breakpoint(md) {
+			font-size: 2rem;
+		}
+	}
+}
