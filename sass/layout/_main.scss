@@ -1,0 +1,14 @@
+main {
+	//background-color: black;
+	background-image: url("../img/fondo3.jpg");
+	// background-size: cover;
+}
+
+.container-cards {
+	width: 90%;
+	display: grid;
+	margin: auto;
+	padding-block: 30px;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 30px;
+}

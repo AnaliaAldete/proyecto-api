@@ -20,15 +20,16 @@ const renderCard = (data) => {
 		data.forEach((peli) => {
 			const { name, url, id } = peli;
 			ContainerCards.innerHTML += `
-     <div id="card">
+     <div id="card" class="card">
 					<img src="${url}"alt="imagen pelicula">
-					<div>
+					<div class="container-descripcion">
 						<h2>${name}</h2>
-						<button></button>
+						<button class="btn-ver-detalle">Ver detalle</button>
 					</div>
 				</div> 
     `;
 		});
+		asignarEventoVerDetalle(document.querySelectorAll(".btn-ver-detalle"));
 	}, 2000);
 };
 
@@ -38,3 +39,15 @@ const renderSpinner = () => {
 };
 
 const ocultarSpinner = () => containerSpinner.classList.add("hidden");
+
+const asignarEventoVerDetalle = (btns) => {
+	btns.forEach((btn) =>
+		btn.addEventListener("click", () => {
+			console.log("click");
+		})
+	);
+};
+
+// const verDetalle=(idPeli)=>{
+
+// }
