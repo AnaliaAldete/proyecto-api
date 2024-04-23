@@ -9,6 +9,10 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.hidden {
+  display: none;
+}
+
 header {
   background-color: rgb(255, 215, 0);
   display: flex;
@@ -77,6 +81,12 @@ footer ul li a .fa-solid:hover {
 }
 footer span {
   color: red;
+}
+
+.container-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
 /*# sourceMappingURL=style.css.map */
