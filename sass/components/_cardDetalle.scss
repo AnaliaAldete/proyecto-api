@@ -1,0 +1,23 @@
+.card-detalle {
+	width: 80%;
+	margin: auto;
+	color: white;
+	grid-column: 1 / span 4;
+	display: flex;
+	gap: 20px;
+	padding: 20px;
+	box-shadow: 5px 5px 15px gray, -5px -5px 15px gray;
+	background-color: $color-principal;
+	border-radius: 15px;
+	img {
+		border-radius: 15px;
+	}
+	.container-detalle {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		h2 {
+			text-align: center;
+		}
+	}
+}
