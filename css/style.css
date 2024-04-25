@@ -79,4 +79,54 @@ footer span {
   color: red;
 }
 
+main {
+  background-image: url("../img/fondo3.jpg");
+  flex: 1;
+}
+
+.container-cards {
+  width: 90%;
+  display: grid;
+  margin: auto;
+  padding-block: 30px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.card-detalle {
+  width: 80%;
+  margin: auto;
+  color: white;
+  grid-column: 1/span 4;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  box-shadow: 5px 5px 15px gray, -5px -5px 15px gray;
+  background-color: rgb(0, 0, 0);
+  border-radius: 15px;
+}
+.card-detalle img {
+  border-radius: 15px;
+}
+.card-detalle .containerX {
+  text-align: end;
+}
+.card-detalle .containerX button {
+  padding: 1px;
+}
+.card-detalle .container-detalle {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.card-detalle .container-detalle h2 {
+  text-align: center;
+}
+
+.container-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
 /*# sourceMappingURL=style.css.map */
