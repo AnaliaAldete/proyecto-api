@@ -4,15 +4,15 @@ const containerSpinner = document.getElementById("container-spinner");
 const $ = (selector) => document.querySelector(selector);
 const baseUrl = "https://66147fde2fc47b4cf27c6f1c.mockapi.io/api/peliculas";
 
-const getPeli = () => {
+const getPeliculas = () => {
 	fetch(baseUrl)
 		.then((res) => res.json())
-		.then((data) => renderCard(data))
+		.then((data) => renderCards(data))
 		.catch((err) => console.log(err));
 };
-getPeli();
+getPeliculas();
 
-const renderCard = (data) => {
+const renderCards = (data) => {
 	renderSpinner();
 	setTimeout(() => {
 		ocultarSpinner();
@@ -73,26 +73,26 @@ const renderDetallePeli = (data) => {
 			calificacion,
 		} = data;
 		ContainerCards.innerHTML = `
-     <div id="card-detalle" class="card-detalle">
-     
-					<img src="${url}" alt="imagen pelicula">
-					<div class="container-detalle">
-                    <div>
-                    <button>X</button>
-                    </div>
-						<h2>${name}</h2>
-                        <p>${descripcion}</p>
-                        <p>${anio}</p>
-                        <p>${genero}</p>
-                        <p>${director}</p>
-                        <p>${actoresPrincipales}</p>
-                        <p>${calificacion}</p>
-                        <div>
-						<button class="btn-editar-peli" data-cardId="${id}">Editar</button>
-						<button class="btn-eliminar-peli" data-cardId="${id}">Eliminar</button>
-                        </div>
-					</div>
-                    
-				</div>`;
-	});
+    <div id="card-detalle" class="card-detalle">
+	    <img src="${url}" alt="imagen pelicula" />
+	    <div class="container-detalle" id="container-detalle">
+		    <div class="containerX">
+			    <button id="btnX">X</i></button>
+		    </div>
+		    <h2>${name}</h2>
+		    <p>Sinopsis: ${descripcion}</p>
+		    <p>Lanzamiento: ${anio}</p>
+		    <p>Género: ${genero}</p>
+		    <p>Director: ${director}</p>
+		    <p>Actores principales: ${actoresPrincipales}</p>
+		    <p>Calificación: ${calificacion}</p>
+		    <div>
+			    <button class="btn-editar-peli" data-cardId="${id}">Editar</button>
+			    <button class="btn-eliminar-peli" data-cardId="${id}">Eliminar</button>
+		    </div>
+	    </div>
+    </div>`;
+		const btnX = document.getElementById("btnX");
+		btnX.addEventListener("click", getPeliculas);
+	}, 2000);
 };

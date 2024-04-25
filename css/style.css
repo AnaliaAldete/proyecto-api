@@ -7,6 +7,10 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .hidden {
@@ -50,7 +54,7 @@ footer {
   align-items: center;
   flex-direction: column;
   gap: 10px;
-  padding: 20px;
+  padding: 10px;
 }
 footer ul {
   display: flex;
@@ -85,6 +89,7 @@ footer span {
 
 main {
   background-image: url("../img/fondo3.jpg");
+  flex: 1;
 }
 
 .container-cards {
@@ -148,6 +153,12 @@ main {
 }
 .card-detalle img {
   border-radius: 15px;
+}
+.card-detalle .containerX {
+  text-align: end;
+}
+.card-detalle .containerX button {
+  padding: 1px;
 }
 .card-detalle .container-detalle {
   display: flex;
