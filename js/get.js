@@ -1,5 +1,12 @@
 const ContainerCards = document.getElementById("container-cards");
 const containerSpinner = document.getElementById("container-spinner");
+const inputName = document.getElementById("input-nombre");
+const inputDescripcion = document.getElementById("input-descripcion");
+const inputGenero = document.getElementById("input-genero");
+const inputAnio = document.getElementById("input-anio");
+const inputDirector = document.getElementById("input-director");
+const inputActores = document.getElementById("input-actores");
+const inputCalificacion = document.getElementById("input-calificacion");
 
 const $ = (selector) => document.querySelector(selector);
 const baseUrl = "https://66147fde2fc47b4cf27c6f1c.mockapi.io/api/peliculas";
@@ -47,15 +54,16 @@ const asignarEventoVerDetalle = (btns) => {
 		})
 	);
 };
-
+let idPeliActual;
 const getDetalle = (idPeli) => {
+	idPeliActual = idPeli;
 	fetch(`${baseUrl}/${idPeli}`)
 		.then((res) => res.json())
 		.then((data) => renderDetallePeli(data))
 		.catch((err) => console.log(err));
 };
 
-const renderDetallePeli = (data) => {
+const renderDetallePeli = (peli) => {
 	renderSpinner();
 	setTimeout(() => {
 		ocultarSpinner();
@@ -71,7 +79,7 @@ const renderDetallePeli = (data) => {
 			director,
 			actoresPrincipales,
 			calificacion,
-		} = data;
+		} = peli;
 		ContainerCards.innerHTML = `
     <div id="card-detalle" class="card-detalle">
 	    <img src="${url}" alt="imagen pelicula" />
@@ -87,12 +95,40 @@ const renderDetallePeli = (data) => {
 		    <p>Actores principales: ${actoresPrincipales}</p>
 		    <p>Calificación: ${calificacion}</p>
 		    <div>
-			    <button class="btn-editar-peli" data-cardId="${id}">Editar</button>
+			    <button class="btn-editar-peli" id="btn-editar-peli" data-cardId="${id}">Editar</button>
 			    <button class="btn-eliminar-peli" data-cardId="${id}">Eliminar</button>
 		    </div>
 	    </div>
-    </div>`;
-		const btnX = document.getElementById("btnX");
-		btnX.addEventListener("click", getPeliculas);
+    </div>
+    `;
+		document.getElementById("btnX").addEventListener("click", getPeliculas);
+
+		document.getElementById("btn-editar-peli").addEventListener("click", () => {
+			mostrarFormEditar(peli);
+		});
+		document
+			.getElementById("btn-cancelar-edicion")
+			.addEventListener("click", (e) => {
+				e.preventDefault();
+				cancelarEdicion();
+			});
 	}, 2000);
+};
+
+const mostrarFormEditar = (peli) => {
+	inputName.value = peli.name;
+	inputDescripcion.value = peli.descripcion;
+	inputGenero.value = peli.genero;
+	inputAnio.value = peli.anio;
+	inputDirector.value = peli.director;
+	inputActores.value = peli.actoresPrincipales;
+	inputCalificacion.value = peli.calificacion;
+
+	document.getElementById("card-detalle").style.display = "none";
+	document.getElementById("form-editar-peli").classList.remove("hidden");
+};
+
+const cancelarEdicion = () => {
+	document.getElementById("card-detalle").style.display = "flex";
+	document.getElementById("form-editar-peli").classList.add("hidden");
 };

@@ -4,10 +4,10 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="css/style.css" />
-		<!-- <script
+		<script
 			src="https://kit.fontawesome.com/2b4110b56c.js"
 			crossorigin="anonymous"
-		></script> -->
+		></script>
 		<title>Los Oscar</title>
 	</head>
 	<body>
@@ -15,6 +15,7 @@
 			<div>
 				<img
 					src="img/AI_Generated_Image_2024-04-21_451419729028201__1_-removebg-preview.png"
+					alt="premio Oscar"
 				/>
 				<h1>Películas nominadas al Oscar</h1>
 			</div>
@@ -26,15 +27,41 @@
 			<div id="container-spinner" class="container-spinner hidden">
 				<img src="img/blocks-shuffle-3.svg" alt="spinner" />
 			</div>
-			<div id="container-cards" class="container-cards">
-				<!-- <div id="card">
-					<img src=""alt=>
-					<div>
-						<h2></h2>
-						<button></button>
-					</div>
-				</div> -->
-			</div>
+			<div id="container-cards" class="container-cards"></div>
+			<form class="hidden" id="form-editar-peli">
+				<div>
+					<label for="input-nombre">Pelicula</label>
+					<input type="text" name="nombre" id="input-nombre" />
+				</div>
+				<div>
+					<label for="input-descripcion">Sinopsis</label>
+					<input type="text" name="descripcion" id="input-descripcion" />
+				</div>
+				<div>
+					<label for="input-anio">Lanzamiento</label>
+					<input type="number" name="anio" id="input-anio" />
+				</div>
+				<div>
+					<label for="input-genero">Genero</label>
+					<input type="text" name="genero" id="input-genero" />
+				</div>
+				<div>
+					<label for="input-director">Director</label>
+					<input type="text" name="director" id="input-director" />
+				</div>
+				<div>
+					<label for="input-actores">Actores principales</label>
+					<input type="text" name="actores" id="input-actores" />
+				</div>
+				<div>
+					<label for="input-calificacion">Calificación</label>
+					<input type="text" name="calificacion" id="input-calificacion" />
+				</div>
+				<div>
+					<button type="submit">Editar</button>
+					<button id="btn-cancelar-edicion">Cancelar</button>
+				</div>
+			</form>
 		</main>
 		<footer>
 			<ul>
