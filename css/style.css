@@ -99,6 +99,7 @@ main {
   padding-block: 30px;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
+  justify-items: center;
 }
 
 .card {
@@ -107,6 +108,7 @@ main {
   color: white;
   background-color: beige;
   position: relative;
+  max-width: 200px;
 }
 .card img {
   width: 100%;

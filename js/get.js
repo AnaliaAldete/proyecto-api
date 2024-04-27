@@ -1,5 +1,12 @@
 const ContainerCards = document.getElementById("container-cards");
 const containerSpinner = document.getElementById("container-spinner");
+const inputName = document.getElementById("input-nombre");
+const inputDescripcion = document.getElementById("input-descripcion");
+const inputGenero = document.getElementById("input-genero");
+const inputAnio = document.getElementById("input-anio");
+const inputDirector = document.getElementById("input-director");
+const inputActores = document.getElementById("input-actores");
+const inputCalificacion = document.getElementById("input-calificacion");
 
 const $ = (selector) => document.querySelector(selector);
 const baseUrl = "https://66147fde2fc47b4cf27c6f1c.mockapi.io/api/peliculas";
@@ -47,8 +54,9 @@ const asignarEventoVerDetalle = (btns) => {
 		})
 	);
 };
-
+let idPeliActual;
 const getDetalle = (idPeli) => {
+	idPeliActual = idPeli;
 	fetch(`${baseUrl}/${idPeli}`)
 		.then((res) => res.json())
 		.then((data) => renderDetallePeli(data))
@@ -92,41 +100,6 @@ const renderDetallePeli = (peli) => {
 		    </div>
 	    </div>
     </div>
-
-   <form class="hidden" id="form-editar-peli">
-				<div>
-					<label for="input-nombre">Pelicula</label>
-					<input type="text" name="nombre" id="input-nombre" />
-				</div>
-				<div>
-					<label for="input-descripcion">Sinopsis</label>
-					<input type="text" name="descripcion" id="input-descripcion" />
-				</div>
-				<div>
-					<label for="input-anio">Lanzamiento</label>
-					<input type="number" name="anio" id="input-anio" />
-				</div>
-				<div>
-					<label for="input-genero">Genero</label>
-					<input type="text" name="genero" id="input-genero" />
-				</div>
-				<div>
-					<label for="input-director">Director</label>
-					<input type="text" name="director" id="input-director" />
-				</div>
-				<div>
-					<label for="input-actores">Actores principales</label>
-					<input type="text" name="actores" id="input-actores" />
-				</div>
-				<div>
-					<label for="input-calificacion">Calificación</label>
-					<input type="text" name="calificacion" id="input-calificacion" />
-				</div>
-				<div>
-					<button type="submit">Editar</button>
-					<button id="btn-cancelar-edicion">Cancelar</button>
-				</div>
-			</form>
     `;
 		document.getElementById("btnX").addEventListener("click", getPeliculas);
 
@@ -143,14 +116,6 @@ const renderDetallePeli = (peli) => {
 };
 
 const mostrarFormEditar = (peli) => {
-	const inputName = document.getElementById("input-nombre");
-	const inputDescripcion = document.getElementById("input-descripcion");
-	const inputGenero = document.getElementById("input-genero");
-	const inputAnio = document.getElementById("input-anio");
-	const inputDirector = document.getElementById("input-director");
-	const inputActores = document.getElementById("input-actores");
-	const inputCalificacion = document.getElementById("input-calificacion");
-
 	inputName.value = peli.name;
 	inputDescripcion.value = peli.descripcion;
 	inputGenero.value = peli.genero;
