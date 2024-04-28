@@ -1,5 +1,3 @@
-const formEditarpeli = document.getElementById("form-editar-peli");
-
 const confirmarEditar = () => {
 	//hacer validacion para que no se suba un campo vacio
 	const peliEditada = {
@@ -10,7 +8,7 @@ const confirmarEditar = () => {
 		director: inputDirector.value,
 		actoresPrincipales: [inputActores.value],
 		calificacion: inputCalificacion.value,
-		//url: ,
+		url: inputUrl.value,
 	};
 	fetch(`${baseUrl}/${idPeliActual}`, {
 		method: "PUT",
@@ -22,13 +20,20 @@ const confirmarEditar = () => {
 		.then((res) => {
 			if (res.ok) {
 				getDetalle(idPeliActual);
-				formEditarpeli.classList.add("hidden");
 			}
 		})
 		.catch((err) => console.log(err));
 };
 
-formEditarpeli.addEventListener("submit", (e) => {
+formPeli.addEventListener("submit", (e) => {
 	e.preventDefault();
-	confirmarEditar();
+	const modo = formPeli.getAttribute("data-modo");
+	if (modo === "editar") {
+		formPeli.classList.add("hidden");
+		confirmarEditar();
+	} else if (modo === "agregar") {
+		formPeli.classList.add("hidden");
+		agregarPeli();
+		formPeli.reset();
+	}
 });
