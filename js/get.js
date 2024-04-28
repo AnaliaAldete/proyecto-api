@@ -10,6 +10,8 @@ const inputCalificacion = document.getElementById("input-calificacion");
 const inputUrl = document.getElementById("input-url");
 const formPeli = document.getElementById("form-peli");
 const btnCancelar = document.getElementById("btn-cancelar");
+const containerModal = document.getElementById("container-modal");
+console.log(containerModal);
 
 const $ = (selector) => document.querySelector(selector);
 const baseUrl = "https://66147fde2fc47b4cf27c6f1c.mockapi.io/api/peliculas";
@@ -99,7 +101,7 @@ const renderDetallePeli = (peli) => {
 		    <p>Calificación: ${calificacion}</p>
 		    <div>
 			    <button class="btn-editar-peli" id="btn-editar-peli" data-cardId="${id}">Editar</button>
-			    <button class="btn-eliminar-peli" data-cardId="${id}">Eliminar</button>
+			    <button class="btn-eliminar-peli" id="btn-eliminar-peli">Eliminar</button>
 		    </div>
 	    </div>
     </div>
@@ -109,6 +111,12 @@ const renderDetallePeli = (peli) => {
 		document.getElementById("btn-editar-peli").addEventListener("click", () => {
 			mostrarFormEditar(peli);
 		});
+		document
+			.getElementById("btn-eliminar-peli")
+			.addEventListener("click", () => {
+				containerModal.classList.remove("hidden");
+				document.getElementById("card-detalle").style.display = "none";
+			});
 	}, 2000);
 };
 
