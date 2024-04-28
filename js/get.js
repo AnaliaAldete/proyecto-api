@@ -7,6 +7,9 @@ const inputAnio = document.getElementById("input-anio");
 const inputDirector = document.getElementById("input-director");
 const inputActores = document.getElementById("input-actores");
 const inputCalificacion = document.getElementById("input-calificacion");
+const inputUrl = document.getElementById("input-url");
+const formPeli = document.getElementById("form-peli");
+const btnCancelar = document.getElementById("btn-cancelar");
 
 const $ = (selector) => document.querySelector(selector);
 const baseUrl = "https://66147fde2fc47b4cf27c6f1c.mockapi.io/api/peliculas";
@@ -106,16 +109,12 @@ const renderDetallePeli = (peli) => {
 		document.getElementById("btn-editar-peli").addEventListener("click", () => {
 			mostrarFormEditar(peli);
 		});
-		document
-			.getElementById("btn-cancelar-edicion")
-			.addEventListener("click", (e) => {
-				e.preventDefault();
-				cancelarEdicion();
-			});
 	}, 2000);
 };
 
 const mostrarFormEditar = (peli) => {
+	formPeli.setAttribute("data-modo", "editar");
+
 	inputName.value = peli.name;
 	inputDescripcion.value = peli.descripcion;
 	inputGenero.value = peli.genero;
@@ -123,12 +122,24 @@ const mostrarFormEditar = (peli) => {
 	inputDirector.value = peli.director;
 	inputActores.value = peli.actoresPrincipales;
 	inputCalificacion.value = peli.calificacion;
+	inputUrl.value = peli.url;
 
 	document.getElementById("card-detalle").style.display = "none";
-	document.getElementById("form-editar-peli").classList.remove("hidden");
+	formPeli.classList.remove("hidden");
 };
 
-const cancelarEdicion = () => {
-	document.getElementById("card-detalle").style.display = "flex";
-	document.getElementById("form-editar-peli").classList.add("hidden");
+const cancelarEditarOAgregar = () => {
+	formPeli.classList.add("hidden");
+
+	if (document.getElementById("card-detalle")) {
+		document.getElementById("card-detalle").style.display = "flex";
+	} else {
+		ContainerCards.innerHTML = "";
+		getPeliculas();
+	}
 };
+
+btnCancelar.addEventListener("click", (e) => {
+	e.preventDefault();
+	cancelarEditarOAgregar();
+});

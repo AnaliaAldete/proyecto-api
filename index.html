@@ -20,7 +20,7 @@
 				<h1>Películas nominadas al Oscar</h1>
 			</div>
 			<nav>
-				<button>Agregar peli</button>
+				<button id="btn-agregar-peli">Agregar peli</button>
 			</nav>
 		</header>
 		<main>
@@ -28,7 +28,8 @@
 				<img src="img/blocks-shuffle-3.svg" alt="spinner" />
 			</div>
 			<div id="container-cards" class="container-cards"></div>
-			<form class="hidden" id="form-editar-peli">
+			<!-- Inicio formulario editar y crear peli -->
+			<form class="hidden" id="form-peli" data-modo="">
 				<div>
 					<label for="input-nombre">Pelicula</label>
 					<input type="text" name="nombre" id="input-nombre" />
@@ -58,8 +59,12 @@
 					<input type="text" name="calificacion" id="input-calificacion" />
 				</div>
 				<div>
-					<button type="submit">Editar</button>
-					<button id="btn-cancelar-edicion">Cancelar</button>
+					<label for="input-url">Url de la imagen</label>
+					<input type="url" name="url" id="input-url" />
+				</div>
+				<div>
+					<button type="submit">Aceptar</button>
+					<button id="btn-cancelar">Cancelar</button>
 				</div>
 			</form>
 		</main>

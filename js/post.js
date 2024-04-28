@@ -1,25 +1,43 @@
-const peli = {
-	name: "",
-	descripcion: "",
-	anio: "",
-	genero: "",
-	director: "",
-	actoresPrincipales: "",
-	calificacion: "",
-	url: "",
-	id: "",
+const btnAgregarPeli = document.getElementById("btn-agregar-peli");
+
+const mostrarFormAgregar = () => {
+	formPeli.reset();
+	ContainerCards.innerHTML = "";
+	formPeli.setAttribute("data-modo", "agregar");
+	formPeli.classList.remove("hidden");
 };
 
-const nuevaPeli = () => {
-	fetch("https://66147fde2fc47b4cf27c6f1c.mockapi.io/api/peliculas", {
+btnAgregarPeli.addEventListener("click", mostrarFormAgregar);
+
+const agregarPeli = () => {
+	const nuevaPeli = {
+		name: inputName.value,
+		descripcion: inputDescripcion.value,
+		anio: inputAnio.value,
+		genero: [inputGenero.value],
+		director: inputDirector.value,
+		actoresPrincipales: [inputActores.value],
+		calificacion: inputCalificacion.value,
+		url: inputUrl.value,
+	};
+	fetch(baseUrl, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 		},
-		body: JSON.stringify(peli),
-	}).then((res) => {
-		if (res.ok) {
-			return res.json();
-		}
-	});
+		body: JSON.stringify(nuevaPeli),
+	})
+		.then((res) => {
+			if (res.ok) {
+				return res.json();
+			}
+		})
+		.then((data) => {
+			if (data) {
+				getPeliculas();
+			} else {
+				alert("ocurrio el siguiente error");
+			}
+		})
+		.catch((err) => console.log(err));
 };
