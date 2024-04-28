@@ -14,7 +14,7 @@ header {
 	img {
 		width: 30px;
 	}
-	@include breakpoint(md) {
+	@include breakpoint(xs) {
 		flex-direction: row;
 	}
 	h1 {

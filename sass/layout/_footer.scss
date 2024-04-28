@@ -24,17 +24,21 @@ footer {
 					display: flex;
 					justify-content: center;
 					align-items: center;
-				}
-				.fa-brands:hover,
-				.fa-solid:hover {
-					color: $color-principal;
-					background-color: $color-terciario;
-					transition: 0.2s;
+					&:hover,
+					&:hover {
+						color: $color-secundario;
+						transform: scale(1.1);
+						transition: 0.2s;
+					}
 				}
 			}
 		}
 	}
-	span {
-		color: red;
+	p {
+		font-size: 0.8rem;
+		font-weight: bold;
+		span {
+			color: red;
+		}
 	}
 }

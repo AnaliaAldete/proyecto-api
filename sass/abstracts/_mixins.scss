@@ -12,3 +12,24 @@ $breakpoints: (
 		}
 	}
 }
+
+@mixin style-button(
+	$color-bg,
+	$color-texto,
+	$color-bg-hover,
+	$color-texto-hover
+) {
+	border-radius: 20px;
+	padding: 5px 10px;
+	background-color: $color-bg;
+	color: $color-texto;
+	font-weight: bold;
+	border: none;
+	cursor: pointer;
+	box-shadow: 2px 2px 5px black;
+
+	&:hover {
+		background-color: $color-bg-hover;
+		color: $color-texto-hover;
+	}
+}

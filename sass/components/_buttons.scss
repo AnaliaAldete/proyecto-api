@@ -1,0 +1,22 @@
+header {
+	button {
+		@include style-button(
+			$color-principal,
+			$color-terciario,
+			$color-principal,
+			$color-secundario
+		);
+	}
+}
+
+.card {
+	button {
+		font-size: 0.7rem;
+		@include style-button(
+			$color-terciario,
+			$color-principal,
+			$color-secundario,
+			$color-principal
+		);
+	}
+}

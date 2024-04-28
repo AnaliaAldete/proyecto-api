@@ -4,7 +4,11 @@
 	color: white;
 	background-color: beige;
 	position: relative;
-	max-width: 200px;
+	max-width: 250px;
+	&:hover {
+		transform: scale(1.1);
+		transition: 0.2s;
+	}
 	img {
 		width: 100%;
 		border-radius: 15px;
@@ -32,8 +36,4 @@
 			text-align: center;
 		}
 	}
-}
-
-.card:hover {
-	transform: scale(1.1);
 }
