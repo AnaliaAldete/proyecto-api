@@ -1,4 +1,22 @@
 .container-modal {
 	color: white;
 	background-color: black;
+	position: fixed;
+	z-index: 1;
+	box-shadow: 5px 5px 15px gray, -5px -5px 15px gray;
+	padding: 20px;
+	background-color: $color-principal;
+	border-radius: 15px;
+	max-width: 90%;
+}
+.modal {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	div {
+		display: flex;
+		justify-content: center;
+		gap: 10px;
+	}
 }

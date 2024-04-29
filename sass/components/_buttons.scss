@@ -20,3 +20,38 @@ header {
 		);
 	}
 }
+
+.card-detalle {
+	.btn-editar-peli,
+	.btn-eliminar-peli {
+		@include style-button(
+			$color-terciario,
+			$color-principal,
+			$color-secundario,
+			$color-principal
+		);
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+	.containerX {
+		button {
+			padding: 1px 2px;
+			font-weight: bold;
+		}
+	}
+}
+
+form {
+	button {
+		@include style-button(
+			$color-terciario,
+			$color-principal,
+			$color-secundario,
+			$color-principal
+		);
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+}

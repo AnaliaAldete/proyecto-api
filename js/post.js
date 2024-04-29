@@ -4,7 +4,7 @@ const mostrarFormAgregar = () => {
 	formPeli.reset();
 	ContainerCards.innerHTML = "";
 	formPeli.setAttribute("data-modo", "agregar");
-	formPeli.classList.remove("hidden");
+	containerForm.classList.remove("hidden");
 };
 
 btnAgregarPeli.addEventListener("click", mostrarFormAgregar);

@@ -1,11 +1,48 @@
-form {
+.container-form {
+	position: fixed;
+	z-index: 1;
 	width: 80%;
-	color: white;
+	max-width: 500px;
+	max-height: 60vh;
+	overflow: auto;
+	box-shadow: 5px 5px 15px gray, -5px -5px 15px gray;
+	padding: 20px;
+	background-color: $color-principal;
+	border-radius: 15px;
+}
+
+.container-form::-webkit-scrollbar {
+	width: 6px;
+}
+
+.container-form::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.container-form::-webkit-scrollbar-thumb {
+	background-color: #888;
+	border-radius: 4px;
+}
+
+form {
+	position: relative;
+	color: $color-secundario;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
-	padding: 20px;
-	box-shadow: 5px 5px 15px gray, -5px -5px 15px gray;
-	background-color: $color-principal;
-	border-radius: 15px;
+	.container-input {
+		display: flex;
+		gap: 10px;
+		align-items: center;
+		input {
+			width: 60%;
+			padding: 5px;
+			flex: 1;
+		}
+	}
+	.container-btn-form {
+		display: flex;
+		gap: 10px;
+		justify-content: center;
+	}
 }

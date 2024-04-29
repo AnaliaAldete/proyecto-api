@@ -9,9 +9,9 @@ const inputActores = document.getElementById("input-actores");
 const inputCalificacion = document.getElementById("input-calificacion");
 const inputUrl = document.getElementById("input-url");
 const formPeli = document.getElementById("form-peli");
+const containerForm = document.getElementById("container-form");
 const btnCancelar = document.getElementById("btn-cancelar");
 const containerModal = document.getElementById("container-modal");
-console.log(containerModal);
 
 const $ = (selector) => document.querySelector(selector);
 const baseUrl = "https://66147fde2fc47b4cf27c6f1c.mockapi.io/api/peliculas";
@@ -87,23 +87,26 @@ const renderDetallePeli = (peli) => {
 		} = peli;
 		ContainerCards.innerHTML = `
     <div id="card-detalle" class="card-detalle">
-	    <img src="${url}" alt="imagen pelicula" />
+        <div class="containerX">
+			<button id="btnX">x</button>
+		</div>     
 	    <div class="container-detalle" id="container-detalle">
-		    <div class="containerX">
-			    <button id="btnX">X</i></button>
-		    </div>
-		    <h2>${name}</h2>
-		    <p>Sinopsis: ${descripcion}</p>
-		    <p>Lanzamiento: ${anio}</p>
-		    <p>Género: ${genero}</p>
-		    <p>Director: ${director}</p>
-		    <p>Actores principales: ${actoresPrincipales}</p>
-		    <p>Calificación: ${calificacion}</p>
+            <img src="${url}" alt="imagen pelicula" />
 		    <div>
-			    <button class="btn-editar-peli" id="btn-editar-peli" data-cardId="${id}">Editar</button>
-			    <button class="btn-eliminar-peli" id="btn-eliminar-peli">Eliminar</button>
-		    </div>
+                <h2>${name}</h2>
+		        <p>Sinopsis: ${descripcion}</p>
+		        <p>Lanzamiento: ${anio}</p>
+		        <p>Género: ${genero}</p>
+		        <p>Director: ${director}</p>
+		        <p>Actores principales: ${actoresPrincipales}</p>
+		        <p>Calificación: ${calificacion}</p>
+                <div class="container-btn">
+			        <button class="btn-editar-peli" id="btn-editar-peli" data-cardId="${id}">Editar</button>
+			        <button class="btn-eliminar-peli" id="btn-eliminar-peli">Eliminar</button>
+		        </div>
+            </div>
 	    </div>
+        
     </div>
     `;
 		document.getElementById("btnX").addEventListener("click", getPeliculas);
@@ -133,11 +136,11 @@ const mostrarFormEditar = (peli) => {
 	inputUrl.value = peli.url;
 
 	document.getElementById("card-detalle").style.display = "none";
-	formPeli.classList.remove("hidden");
+	containerForm.classList.remove("hidden");
 };
 
 const cancelarEditarOAgregar = () => {
-	formPeli.classList.add("hidden");
+	containerForm.classList.add("hidden");
 
 	if (document.getElementById("card-detalle")) {
 		document.getElementById("card-detalle").style.display = "flex";

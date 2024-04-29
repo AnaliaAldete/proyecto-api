@@ -1,29 +1,53 @@
 .card-detalle {
-	width: 80%;
-	margin: auto;
+	padding: 10px;
 	color: white;
-	grid-column: 1 / span 4;
 	display: flex;
-	gap: 20px;
-	padding: 20px;
+	flex-direction: column;
 	box-shadow: 5px 5px 15px gray, -5px -5px 15px gray;
 	background-color: $color-principal;
 	border-radius: 15px;
-	img {
-		border-radius: 15px;
+	gap: 10px;
+	@include breakpoint(md) {
+		grid-column: 1 / span 4;
+		max-width: 650px;
+		gap: 0px;
 	}
 	.containerX {
 		text-align: end;
-		button {
-			padding: 1px;
-		}
+	}
+	h2 {
+		text-align: center;
 	}
 	.container-detalle {
 		display: flex;
+		gap: 10px;
 		flex-direction: column;
-		gap: 20px;
-		h2 {
-			text-align: center;
+		@include breakpoint(md) {
+			gap: 20px;
+		}
+
+		img {
+			border-radius: 15px;
+			@include breakpoint(md) {
+				max-width: 250px;
+			}
+		}
+		div {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 10px;
+			justify-content: space-between;
+			padding-inline: 10px;
+		}
+		@include breakpoint(md) {
+			flex-direction: row;
+		}
+		.container-btn {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			gap: 10px;
 		}
 	}
 }

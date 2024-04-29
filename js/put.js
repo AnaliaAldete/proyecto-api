@@ -29,10 +29,10 @@ formPeli.addEventListener("submit", (e) => {
 	e.preventDefault();
 	const modo = formPeli.getAttribute("data-modo");
 	if (modo === "editar") {
-		formPeli.classList.add("hidden");
+		containerForm.classList.add("hidden");
 		confirmarEditar();
 	} else if (modo === "agregar") {
-		formPeli.classList.add("hidden");
+		containerForm.classList.add("hidden");
 		agregarPeli();
 		formPeli.reset();
 	}

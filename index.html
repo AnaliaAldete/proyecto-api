@@ -29,48 +29,102 @@
 			</div>
 			<div id="container-cards" class="container-cards"></div>
 			<!-- Inicio formulario editar y crear peli -->
-			<form class="hidden" id="form-peli" data-modo="">
-				<div>
-					<label for="input-nombre">Pelicula</label>
-					<input type="text" name="nombre" id="input-nombre" />
+			<div class="container-form hidden" id="container-form">
+				<form id="form-peli" data-modo="">
+					<div class="container-input">
+						<label for="input-nombre">Película</label>
+						<input
+							type="text"
+							name="nombre"
+							id="input-nombre"
+							placeholder="Ingrese el título de la película"
+							required
+						/>
+					</div>
+					<div class="container-input">
+						<label for="input-descripcion">Sinopsis</label>
+						<input
+							type="text"
+							name="descripcion"
+							id="input-descripcion"
+							placeholder="Ingrese una breve descripción de la película"
+							required
+						/>
+					</div>
+					<div class="container-input">
+						<label for="input-anio">Lanzamiento</label>
+						<input
+							type="number"
+							name="anio"
+							id="input-anio"
+							placeholder="Ingrese el año de lanzamiento de la película"
+							required
+						/>
+					</div>
+					<div class="container-input">
+						<label for="input-genero">Género</label>
+						<input
+							type="text"
+							name="genero"
+							id="input-genero"
+							placeholder="Ingrese el o los géneros de la película"
+							required
+						/>
+					</div>
+					<div class="container-input">
+						<label for="input-director">Director</label>
+						<input
+							type="text"
+							name="director"
+							id="input-director"
+							placeholder="Ingrese el director de la película"
+							required
+						/>
+					</div>
+					<div class="container-input">
+						<label for="input-actores">Actores principales</label>
+						<input
+							type="text"
+							name="actores"
+							id="input-actores"
+							placeholder="Ingrese los actores principales de la película"
+							required
+						/>
+					</div>
+					<div class="container-input">
+						<label for="input-calificacion">Calificación</label>
+						<input
+							type="text"
+							name="calificacion"
+							id="input-calificacion"
+							placeholder="Ingrese una calificación de 1 al 10"
+							required
+						/>
+					</div>
+					<div class="container-input">
+						<label for="input-url">Url de la imagen</label>
+						<input
+							type="url"
+							name="url"
+							id="input-url"
+							placeholder="Ingrese url de la imagen de la película"
+							required
+						/>
+					</div>
+					<div class="container-btn-form">
+						<button type="submit">Aceptar</button>
+						<button id="btn-cancelar">Cancelar</button>
+					</div>
+				</form>
+			</div>
+			<div class="container-modal hidden" id="container-modal">
+				<div class="modal">
+					<p>¿Estas seguro que queres eliminar la película?</p>
+					<div>
+						<button id="btn-confirmar-eliminar">Eliminar</button>
+						<button id="btn-cancelar-eliminar">Cancelar</button>
+					</div>
 				</div>
-				<div>
-					<label for="input-descripcion">Sinopsis</label>
-					<input type="text" name="descripcion" id="input-descripcion" />
-				</div>
-				<div>
-					<label for="input-anio">Lanzamiento</label>
-					<input type="number" name="anio" id="input-anio" />
-				</div>
-				<div>
-					<label for="input-genero">Genero</label>
-					<input type="text" name="genero" id="input-genero" />
-				</div>
-				<div>
-					<label for="input-director">Director</label>
-					<input type="text" name="director" id="input-director" />
-				</div>
-				<div>
-					<label for="input-actores">Actores principales</label>
-					<input type="text" name="actores" id="input-actores" />
-				</div>
-				<div>
-					<label for="input-calificacion">Calificación</label>
-					<input type="text" name="calificacion" id="input-calificacion" />
-				</div>
-				<div>
-					<label for="input-url">Url de la imagen</label>
-					<input type="url" name="url" id="input-url" />
-				</div>
-				<div>
-					<button type="submit">Aceptar</button>
-					<button id="btn-cancelar">Cancelar</button>
-				</div>
-			</form>
-			<div class="hidden container-modal" id="container-modal">
-				<p>¿Estas seguro que queres eliminar la película?</p>
-				<button id="btn-confirmar-eliminar">Eliminar</button>
-				<button id="btn-cancelar-eliminar">Cancelar</button>
 			</div>
 		</main>
 		<footer>
