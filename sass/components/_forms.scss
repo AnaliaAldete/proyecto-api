@@ -9,6 +9,28 @@
 	padding: 20px;
 	background-color: $color-principal;
 	border-radius: 15px;
+	form {
+		position: relative;
+		color: $color-secundario;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		.container-input {
+			display: flex;
+			gap: 10px;
+			align-items: center;
+			input {
+				width: 60%;
+				padding: 5px;
+				flex: 1;
+			}
+		}
+		.container-btn-form {
+			display: flex;
+			gap: 10px;
+			justify-content: center;
+		}
+	}
 }
 
 .container-form::-webkit-scrollbar {
@@ -24,25 +46,32 @@
 	border-radius: 4px;
 }
 
-form {
-	position: relative;
-	color: $color-secundario;
+.container-filtros {
+	color: $color-terciario;
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
-	.container-input {
-		display: flex;
-		gap: 10px;
-		align-items: center;
-		input {
-			width: 60%;
-			padding: 5px;
-			flex: 1;
-		}
+	gap: 10px;
+	align-items: center;
+	justify-items: center;
+	background-color: $color-principal;
+	border: 1px solid $color-secundario;
+	border-radius: 15px;
+	padding: 15px;
+	max-width: 90%;
+	@include breakpoint(xs) {
+		flex-direction: row;
+		gap: 20px;
 	}
-	.container-btn-form {
+	form {
 		display: flex;
 		gap: 10px;
-		justify-content: center;
+		@include breakpoint(sm) {
+			gap: 20px;
+		}
+		select {
+			border-radius: 15px;
+			padding: 5px;
+			width: 100px;
+		}
 	}
 }

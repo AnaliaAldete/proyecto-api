@@ -15,7 +15,7 @@ btnAceptarEliminar.addEventListener("click", (e) => {
 		.then((res) => res.json())
 		.then((data) => {
 			containerModal.classList.add("hidden");
-			getPeliculas();
+			getPeliculas(baseUrl);
 		})
 		.catch((err) => console.log(err));
 });

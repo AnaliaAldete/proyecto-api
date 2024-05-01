@@ -97,18 +97,19 @@ main {
   flex: 1;
   padding-block: 30px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 30px;
 }
 
 .container-cards {
   width: 90%;
   display: grid;
+  justify-items: center;
   grid-template-columns: repeat(1, 1fr);
   gap: 30px;
-  justify-items: center;
 }
-@media (min-width: 768px) {
+@media (min-width: 576px) {
   .container-cards {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -117,6 +118,21 @@ main {
   .container-cards {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+.container-cards .sin-datos {
+  background-color: rgb(0, 0, 0);
+  box-shadow: 2px 2px 10px gray, -2px -2px 10px gray;
+  border-radius: 15px;
+  color: rgb(255, 255, 255);
+  grid-column: 2/span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  padding: 20px;
+}
+.container-cards .sin-datos p {
+  text-align: center;
 }
 
 header button {
@@ -199,6 +215,7 @@ form button:hover {
   color: white;
   position: relative;
   max-width: 400px;
+  margin: auto;
 }
 .card:hover {
   transform: scale(1.1);
@@ -212,7 +229,7 @@ form button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   gap: 10px;
   position: absolute;
   bottom: 0;
@@ -240,8 +257,9 @@ form button:hover {
   background-color: rgb(0, 0, 0);
   border-radius: 15px;
   gap: 10px;
+  max-width: 95%;
 }
-@media (min-width: 970px) {
+@media (min-width: 576px) {
   .card-detalle {
     grid-column: 1/span 4;
     max-width: 650px;
@@ -258,25 +276,23 @@ form button:hover {
   display: flex;
   gap: 10px;
   flex-direction: column;
+  align-items: center;
 }
-@media (min-width: 970px) {
+@media (min-width: 576px) {
   .card-detalle .container-detalle {
+    flex-direction: row;
     gap: 20px;
   }
 }
 .card-detalle .container-detalle img {
   border-radius: 15px;
-}
-@media (min-width: 970px) {
-  .card-detalle .container-detalle img {
-    max-width: 250px;
-  }
+  max-width: 300px;
 }
 .card-detalle .container-detalle div {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
   justify-content: space-between;
   padding-inline: 10px;
 }
@@ -304,6 +320,28 @@ form button:hover {
   background-color: rgb(0, 0, 0);
   border-radius: 15px;
 }
+.container-form form {
+  position: relative;
+  color: rgb(255, 215, 0);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container-form form .container-input {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.container-form form .container-input input {
+  width: 60%;
+  padding: 5px;
+  flex: 1;
+}
+.container-form form .container-btn-form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
 
 .container-form::-webkit-scrollbar {
   width: 6px;
@@ -318,27 +356,38 @@ form button:hover {
   border-radius: 4px;
 }
 
-form {
-  position: relative;
-  color: rgb(255, 215, 0);
+.container-filtros {
+  color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-form .container-input {
-  display: flex;
   gap: 10px;
   align-items: center;
+  justify-items: center;
+  background-color: rgb(0, 0, 0);
+  border: 1px solid rgb(255, 215, 0);
+  border-radius: 15px;
+  padding: 15px;
+  max-width: 90%;
 }
-form .container-input input {
-  width: 60%;
-  padding: 5px;
-  flex: 1;
+@media (min-width: 576px) {
+  .container-filtros {
+    flex-direction: row;
+    gap: 20px;
+  }
 }
-form .container-btn-form {
+.container-filtros form {
   display: flex;
   gap: 10px;
-  justify-content: center;
+}
+@media (min-width: 768px) {
+  .container-filtros form {
+    gap: 20px;
+  }
+}
+.container-filtros form select {
+  border-radius: 15px;
+  padding: 5px;
+  width: 100px;
 }
 
 .container-spinner {
