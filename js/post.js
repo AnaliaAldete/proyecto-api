@@ -34,7 +34,7 @@ const agregarPeli = () => {
 		})
 		.then((data) => {
 			if (data) {
-				getPeliculas();
+				getPeliculas(baseUrl);
 			} else {
 				alert("ocurrio el siguiente error");
 			}

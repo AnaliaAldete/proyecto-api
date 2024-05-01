@@ -24,6 +24,14 @@
 			</nav>
 		</header>
 		<main>
+			<div class="container-filtros hidden" id="container-filtros">
+				<h3>Filtros:</h3>
+				<form class="form-filtros">
+					<select name="genero" id="filtro-genero"></select>
+					<select name="anio" id="filtro-anio"></select>
+					<select name="premio" id="filtro-premio"></select>
+				</form>
+			</div>
 			<div id="container-spinner" class="container-spinner hidden">
 				<img src="img/blocks-shuffle-3.svg" alt="spinner" />
 			</div>
@@ -153,5 +161,6 @@
 		<script src="js/post.js"></script>
 		<script src="js/put.js"></script>
 		<script src="js/delete.js"></script>
+		<script src="js/filtros.js"></script>
 	</body>
 </html>

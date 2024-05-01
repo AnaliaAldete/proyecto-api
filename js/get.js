@@ -13,25 +13,34 @@ const containerForm = document.getElementById("container-form");
 const btnCancelar = document.getElementById("btn-cancelar");
 const containerModal = document.getElementById("container-modal");
 
-const $ = (selector) => document.querySelector(selector);
 const baseUrl = "https://66147fde2fc47b4cf27c6f1c.mockapi.io/api/peliculas";
 
-const getPeliculas = () => {
-	fetch(baseUrl)
-		.then((res) => res.json())
-		.then((data) => renderCards(data))
+const getPeliculas = (fetchUrl) => {
+	fetch(fetchUrl)
+		.then((res) => {
+			if (res.ok) {
+				return res.json();
+			} else {
+				ContainerCards.innerHTML =
+					'<div class="sin-datos">Esta búsqueda no arrojó ningún resultado.</div>';
+			}
+		})
+		.then((data) => {
+			renderCards(data);
+		})
 		.catch((err) => console.log(err));
 };
-getPeliculas();
+getPeliculas(baseUrl);
 
 const renderCards = (data) => {
 	renderSpinner();
 	setTimeout(() => {
 		ocultarSpinner();
 		ContainerCards.innerHTML = "";
-		data.forEach((peli) => {
-			const { name, url, id } = peli;
-			ContainerCards.innerHTML += `
+		if (data && data.length > 0) {
+			data.forEach((peli) => {
+				const { name, url, id } = peli;
+				ContainerCards.innerHTML += `
      <div id="card" class="card">
 					<img src="${url}"alt="imagen pelicula">
 					<div class="container-descripcion">
@@ -40,8 +49,13 @@ const renderCards = (data) => {
 					</div>
 				</div> 
     `;
-		});
+			});
+		} else {
+			ContainerCards.innerHTML =
+				'<div class="sin-datos"><p>Esta búsqueda no arrojó ningún resultado</p><p>Seleccione otros filtros por favor.</p></div>';
+		}
 		asignarEventoVerDetalle(document.querySelectorAll(".btn-ver-detalle"));
+		mostrarFiltros();
 	}, 2000);
 };
 
@@ -69,6 +83,7 @@ const getDetalle = (idPeli) => {
 };
 
 const renderDetallePeli = (peli) => {
+	ocultarFiltros();
 	renderSpinner();
 	setTimeout(() => {
 		ocultarSpinner();
@@ -109,7 +124,9 @@ const renderDetallePeli = (peli) => {
         
     </div>
     `;
-		document.getElementById("btnX").addEventListener("click", getPeliculas);
+		document
+			.getElementById("btnX")
+			.addEventListener("click", () => getPeliculas(baseUrl));
 
 		document.getElementById("btn-editar-peli").addEventListener("click", () => {
 			mostrarFormEditar(peli);
@@ -146,7 +163,7 @@ const cancelarEditarOAgregar = () => {
 		document.getElementById("card-detalle").style.display = "flex";
 	} else {
 		ContainerCards.innerHTML = "";
-		getPeliculas();
+		getPeliculas(baseUrl);
 	}
 };
 

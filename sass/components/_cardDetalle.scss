@@ -7,7 +7,8 @@
 	background-color: $color-principal;
 	border-radius: 15px;
 	gap: 10px;
-	@include breakpoint(md) {
+	max-width: 95%;
+	@include breakpoint(xs) {
 		grid-column: 1 / span 4;
 		max-width: 650px;
 		gap: 0px;
@@ -22,21 +23,21 @@
 		display: flex;
 		gap: 10px;
 		flex-direction: column;
-		@include breakpoint(md) {
+		align-items: center;
+		@include breakpoint(xs) {
+			flex-direction: row;
 			gap: 20px;
 		}
 
 		img {
 			border-radius: 15px;
-			@include breakpoint(md) {
-				max-width: 250px;
-			}
+			max-width: 300px;
 		}
 		div {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			gap: 10px;
+			gap: 15px;
 			justify-content: space-between;
 			padding-inline: 10px;
 		}
