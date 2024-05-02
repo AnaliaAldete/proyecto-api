@@ -1,10 +1,9 @@
-const btnAgregarPeli = document.getElementById("btn-agregar-peli");
-
 const mostrarFormAgregar = () => {
 	formPeli.reset();
 	ContainerCards.innerHTML = "";
 	formPeli.setAttribute("data-modo", "agregar");
 	containerForm.classList.remove("hidden");
+	ocultarFiltros();
 };
 
 btnAgregarPeli.addEventListener("click", mostrarFormAgregar);
@@ -14,7 +13,7 @@ const agregarPeli = () => {
 		name: inputName.value,
 		descripcion: inputDescripcion.value,
 		anio: inputAnio.value,
-		genero: [inputGenero.value],
+		genero: inputGenero.value,
 		director: inputDirector.value,
 		actoresPrincipales: [inputActores.value],
 		calificacion: inputCalificacion.value,

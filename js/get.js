@@ -1,5 +1,9 @@
+//containers
 const ContainerCards = document.getElementById("container-cards");
 const containerSpinner = document.getElementById("container-spinner");
+const containerForm = document.getElementById("container-form");
+const containerModal = document.getElementById("container-modal");
+//input del form
 const inputName = document.getElementById("input-nombre");
 const inputDescripcion = document.getElementById("input-descripcion");
 const inputGenero = document.getElementById("input-genero");
@@ -8,10 +12,13 @@ const inputDirector = document.getElementById("input-director");
 const inputActores = document.getElementById("input-actores");
 const inputCalificacion = document.getElementById("input-calificacion");
 const inputUrl = document.getElementById("input-url");
+//formularios
 const formPeli = document.getElementById("form-peli");
-const containerForm = document.getElementById("container-form");
+//botones
 const btnCancelar = document.getElementById("btn-cancelar");
-const containerModal = document.getElementById("container-modal");
+const btnAgregarPeli = document.getElementById("btn-agregar-peli");
+const btnCancelarEliminar = document.getElementById("btn-cancelar-eliminar");
+const btnAceptarEliminar = document.getElementById("btn-confirmar-eliminar");
 
 const baseUrl = "https://66147fde2fc47b4cf27c6f1c.mockapi.io/api/peliculas";
 
@@ -41,7 +48,7 @@ const renderCards = (data) => {
 			data.forEach((peli) => {
 				const { name, url, id } = peli;
 				ContainerCards.innerHTML += `
-     <div id="card" class="card">
+                <div id="card" class="card">
 					<img src="${url}"alt="imagen pelicula">
 					<div class="container-descripcion">
 						<h2>${name}</h2>
@@ -73,7 +80,9 @@ const asignarEventoVerDetalle = (btns) => {
 		})
 	);
 };
+
 let idPeliActual;
+
 const getDetalle = (idPeli) => {
 	idPeliActual = idPeli;
 	fetch(`${baseUrl}/${idPeli}`)
