@@ -1,3 +1,4 @@
+//ESTILOS DE BOTONES DEL HEADER
 header {
 	button {
 		@include style-button(
@@ -8,7 +9,7 @@ header {
 		);
 	}
 }
-
+//ESTILOS DE BOTONES DE LAS CARDS
 .card {
 	button {
 		font-size: 0.7rem;
@@ -20,7 +21,7 @@ header {
 		);
 	}
 }
-
+//ESTILOS DE BOTONES DE CARD DETALLE
 .card-detalle {
 	.btn-editar-peli,
 	.btn-eliminar-peli {
@@ -41,7 +42,7 @@ header {
 		}
 	}
 }
-
+//ESTILOS DE BOTONES DEL FORMUALRIO AGREGAR O EDITAR PELI
 form {
 	button {
 		@include style-button(
@@ -53,5 +54,16 @@ form {
 		&:hover {
 			transform: scale(1.1);
 		}
+	}
+}
+//ESTILOS DE BOTONES DE LA MODAL ADVERTENCIA ELIMINAR
+.modal {
+	button {
+		@include style-button(
+			$color-terciario,
+			$color-principal,
+			$color-secundario,
+			$color-principal
+		);
 	}
 }

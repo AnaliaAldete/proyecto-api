@@ -1,3 +1,7 @@
+//BTN
+const btnAgregarPeli = document.getElementById("btn-agregar-peli");
+
+//FUNCION PARA MOSTRAR FORM AGREGAR
 const mostrarFormAgregar = () => {
 	formPeli.reset();
 	ContainerCards.innerHTML = "";
@@ -5,9 +9,10 @@ const mostrarFormAgregar = () => {
 	containerForm.classList.remove("hidden");
 	ocultarFiltros();
 };
-
+//EVENTO PARA MOSTRAR FORM AGERGAR
 btnAgregarPeli.addEventListener("click", mostrarFormAgregar);
 
+//FUNCION PARA AGREGAR PELI
 const agregarPeli = () => {
 	const nuevaPeli = {
 		name: inputName.value,

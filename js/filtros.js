@@ -4,10 +4,19 @@ const filtroAnio = document.getElementById("filtro-anio");
 const filtroPremio = document.getElementById("filtro-premio");
 const containerFiltros = document.getElementById("container-filtros");
 
+//btn
+const btnResetFiltros = document.getElementById("btn-reset-filtros");
+//form
+const formFiltros = document.getElementById("form-filtros");
+
 //funcion para traer las opciones de los select filtros dinamicamente
 const getOption = () => {
 	fetch(baseUrl)
-		.then((res) => res.json())
+		.then((res) => {
+			if (res.ok) {
+				return res.json();
+			}
+		})
 		.then((data) => GenerarOpcionesSelect(data));
 };
 
@@ -21,7 +30,7 @@ const GenerarOpcionesSelect = (datos) => {
 
 	datos.forEach((pelicula) => {
 		generosSinRepetir.add(pelicula.genero);
-		aniosSinRepetir.add(pelicula.anio);
+		aniosSinRepetir.add(parseInt(pelicula.anio));
 		premioSinRepetir.add(pelicula.premio);
 	});
 
@@ -31,7 +40,7 @@ const GenerarOpcionesSelect = (datos) => {
 	filtroAnio.innerHTML = "";
 	filtroPremio.innerHTML = "";
 
-	// opciones por defecto en cada select
+	// opciones por defecto en cada select///
 	const optionGenero = document.createElement("option");
 	optionGenero.value = "";
 	optionGenero.textContent = "Género...";
@@ -98,3 +107,14 @@ const ocultarFiltros = () => {
 const mostrarFiltros = () => {
 	containerFiltros.style.display = "flex";
 };
+
+//evento para resetear filtros
+btnResetFiltros.addEventListener("click", (e) => {
+	e.preventDefault();
+	formFiltros.reset();
+	urlObject.delete("genero");
+	urlObject.delete("anio");
+	urlObject.delete("premio");
+	console.log(urlObject);
+	getPeliculas(baseUrl);
+});

@@ -11,6 +11,7 @@
 		<title>Los Oscar</title>
 	</head>
 	<body>
+		<!-- //////////////////////////////////INICIO HEADER/////////////////////////////////////////////////////////////////////// -->
 		<header>
 			<div>
 				<img
@@ -23,18 +24,30 @@
 				<button id="btn-agregar-peli">Agregar peli</button>
 			</nav>
 		</header>
+		<!-- //////////////////////////////////FIN HEADER/////////////////////////////////////////////////////////////////////// -->
+
+		<!-- //////////////////////////////////INICIO MAIN/////////////////////////////////////////////////////////////////////// -->
 		<main>
+			<!-- Inicio filtros -->
 			<div class="container-filtros hidden" id="container-filtros">
 				<h3>Filtros:</h3>
-				<form class="form-filtros">
-					<select name="genero" id="filtro-genero"></select>
-					<select name="anio" id="filtro-anio"></select>
-					<select name="premio" id="filtro-premio"></select>
+				<form class="form-filtros" id="form-filtros">
+					<div class="container-select-filtros">
+						<select name="genero" id="filtro-genero"></select>
+						<select name="anio" id="filtro-anio"></select>
+						<select name="premio" id="filtro-premio"></select>
+					</div>
+					<div class="container-btn-reset">
+						<button type="submit" id="btn-reset-filtros">Limpiar</button>
+					</div>
 				</form>
 			</div>
+			<!-- Fin filtros -->
+			<!-- Inicio spinner -->
 			<div id="container-spinner" class="container-spinner hidden">
 				<img src="img/blocks-shuffle-3.svg" alt="spinner" />
 			</div>
+			<!-- Fin spinner -->
 			<div id="container-cards" class="container-cards"></div>
 			<!-- Inicio formulario editar y crear peli -->
 			<div class="container-form hidden" id="container-form">
@@ -127,6 +140,8 @@
 					</div>
 				</form>
 			</div>
+			<!-- Fin formulario editar y crear peli -->
+			<!-- Inicio modal de advertencia eliminar -->
 			<div class="container-modal hidden" id="container-modal">
 				<div class="modal">
 					<p>¿Estas seguro que queres eliminar la película?</p>
@@ -136,7 +151,11 @@
 					</div>
 				</div>
 			</div>
+			<!-- Fin modal de advertencia eliminar -->
 		</main>
+		<!-- //////////////////////////////////FIN MAIN/////////////////////////////////////////////////////////////////////// -->
+
+		<!-- //////////////////////////////////INICIO FOOTER/////////////////////////////////////////////////////////////////////// -->
 		<footer>
 			<ul>
 				<li>
@@ -159,6 +178,7 @@
 			</ul>
 			<p>Hecho con<span> ❤ </span> por Analía Aldete</p>
 		</footer>
+		<!-- //////////////////////////////////FIN FOOTER/////////////////////////////////////////////////////////////////////// -->
 		<script src="js/get.js"></script>
 		<script src="js/post.js"></script>
 		<script src="js/put.js"></script>

@@ -1,3 +1,4 @@
+//FUNCION PARA CONFIRMAR EDITAR PELI
 const confirmarEditar = () => {
 	//hacer validacion para que no se suba un campo vacio
 	const peliEditada = {
@@ -25,6 +26,7 @@ const confirmarEditar = () => {
 		.catch((err) => console.log(err));
 };
 
+//EVENTO PARA ENVIAR EL FORMULARIO DE AGREGAR O EDITAR PELI
 formPeli.addEventListener("submit", (e) => {
 	e.preventDefault();
 	const modo = formPeli.getAttribute("data-modo");

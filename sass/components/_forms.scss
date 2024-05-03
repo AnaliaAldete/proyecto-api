@@ -1,3 +1,4 @@
+//ESTILOS DE FORMULARIO AGREGAR O EDITAR PELI
 .container-form {
 	position: fixed;
 	z-index: 1;
@@ -46,6 +47,7 @@
 	border-radius: 4px;
 }
 
+//ESTILOS DE FORMULARIO DE FILTROS
 .container-filtros {
 	color: $color-terciario;
 	flex-direction: column;
@@ -63,14 +65,23 @@
 	}
 	form {
 		display: flex;
-		gap: 10px;
-		@include breakpoint(sm) {
-			gap: 20px;
+		gap: 20px;
+		flex-direction: column;
+		align-items: center;
+		@include breakpoint(xs) {
+			flex-direction: row;
 		}
 		select {
 			border-radius: 15px;
 			padding: 5px;
-			width: 100px;
+			width: 95px;
+		}
+		.container-btn-reset {
+			text-align: center;
+		}
+		.container-select-filtros {
+			display: flex;
+			gap: 10px;
 		}
 	}
 }

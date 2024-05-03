@@ -16,12 +16,12 @@ const inputUrl = document.getElementById("input-url");
 const formPeli = document.getElementById("form-peli");
 //botones
 const btnCancelar = document.getElementById("btn-cancelar");
-const btnAgregarPeli = document.getElementById("btn-agregar-peli");
 const btnCancelarEliminar = document.getElementById("btn-cancelar-eliminar");
 const btnAceptarEliminar = document.getElementById("btn-confirmar-eliminar");
 
 const baseUrl = "https://66147fde2fc47b4cf27c6f1c.mockapi.io/api/peliculas";
 
+//FUNCION PARA TRAER LAS PELIS DE LA API
 const getPeliculas = (fetchUrl) => {
 	fetch(fetchUrl)
 		.then((res) => {
@@ -39,6 +39,7 @@ const getPeliculas = (fetchUrl) => {
 };
 getPeliculas(baseUrl);
 
+//FUNCION PARA RENDERIZAR LAS CARDS
 const renderCards = (data) => {
 	renderSpinner();
 	setTimeout(() => {
@@ -59,13 +60,14 @@ const renderCards = (data) => {
 			});
 		} else {
 			ContainerCards.innerHTML =
-				'<div class="sin-datos"><p>Esta búsqueda no arrojó ningún resultado</p><p>Seleccione otros filtros por favor.</p></div>';
+				'<div class="sin-datos"><p>Esta búsqueda no arrojó ningún resultado</p><p>Haga click limpiar o seleccione otros filtros por favor.</p></div>';
 		}
 		asignarEventoVerDetalle(document.querySelectorAll(".btn-ver-detalle"));
 		mostrarFiltros();
 	}, 2000);
 };
 
+//FUNCIONALIDAD DEL SPINNER
 const renderSpinner = () => {
 	ContainerCards.innerHTML = "";
 	containerSpinner.classList.remove("hidden");
@@ -73,6 +75,7 @@ const renderSpinner = () => {
 
 const ocultarSpinner = () => containerSpinner.classList.add("hidden");
 
+//FUNCION PARA ASIGNACION DE EVENTOS A LOS BOTONES EDITAR DE LAS CARDS
 const asignarEventoVerDetalle = (btns) => {
 	btns.forEach((btn) =>
 		btn.addEventListener("click", (e) => {
@@ -81,8 +84,8 @@ const asignarEventoVerDetalle = (btns) => {
 	);
 };
 
+// FUNCION PARA TRAER EL DETALLE DE LAS PELIS
 let idPeliActual;
-
 const getDetalle = (idPeli) => {
 	idPeliActual = idPeli;
 	fetch(`${baseUrl}/${idPeli}`)
@@ -91,6 +94,7 @@ const getDetalle = (idPeli) => {
 		.catch((err) => console.log(err));
 };
 
+//FUNCION PARA RENDERIZAR DETALLES DE LAS PELIS
 const renderDetallePeli = (peli) => {
 	ocultarFiltros();
 	renderSpinner();
@@ -149,6 +153,7 @@ const renderDetallePeli = (peli) => {
 	}, 2000);
 };
 
+//FUNCION PARA MOSTRAR FORM EDITAR
 const mostrarFormEditar = (peli) => {
 	formPeli.setAttribute("data-modo", "editar");
 
@@ -165,9 +170,9 @@ const mostrarFormEditar = (peli) => {
 	containerForm.classList.remove("hidden");
 };
 
+// FUNCION PARA CANCELAR EDITAR O AGREGAR PELICULA(GENERALIZADO PARA AMBAS)
 const cancelarEditarOAgregar = () => {
 	containerForm.classList.add("hidden");
-
 	if (document.getElementById("card-detalle")) {
 		document.getElementById("card-detalle").style.display = "flex";
 	} else {
@@ -176,6 +181,7 @@ const cancelarEditarOAgregar = () => {
 	}
 };
 
+// EVENTO PARA CANCELAR EDITAR O AGREGAR PELICULA
 btnCancelar.addEventListener("click", (e) => {
 	e.preventDefault();
 	cancelarEditarOAgregar();
