@@ -333,20 +333,38 @@ form button:hover {
   gap: 10px;
 }
 
-.container-form {
+.abrir-modal-form .modal-cover-form {
+  display: block;
+}
+
+.abrir-modal-form .container-form {
+  display: block;
+}
+
+.modal-cover-form {
+  display: none;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
-  z-index: 1;
-  width: 80%;
-  max-width: 500px;
-  max-height: 60vh;
-  overflow: auto;
+  top: 0;
+  z-index: 200;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.container-form {
+  display: none;
+  position: absolute;
+  z-index: 500;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   box-shadow: 5px 5px 15px gray, -5px -5px 15px gray;
-  padding: 20px;
+  padding: 30px;
   background-color: rgb(0, 0, 0);
   border-radius: 15px;
 }
 .container-form form {
-  position: relative;
   color: rgb(255, 215, 0);
   display: flex;
   flex-direction: column;
@@ -366,19 +384,6 @@ form button:hover {
   display: flex;
   gap: 10px;
   justify-content: center;
-}
-
-.container-form::-webkit-scrollbar {
-  width: 6px;
-}
-
-.container-form::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.container-form::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 4px;
 }
 
 .container-filtros {

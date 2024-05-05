@@ -37,6 +37,30 @@ const getPeliculas = (fetchUrl) => {
 		})
 		.catch((err) => console.log(err));
 };
+
+// const getPeliculas = (fetchUrl) => {
+// 	fetch(fetchUrl)
+// 		.then((res) => {
+// 			if (res.ok) {
+// 				return res.json();
+// 			} else {
+// 				throw new Error("No se encontraron datos");
+// 			}
+// 		})
+// 		.then((data) => {
+// 			if (data && data.length > 0) {
+// 				renderCards(data);
+// 			} else {
+// 				throw new Error("No se encontraron datos");
+// 			}
+// 		})
+// 		.catch((err) => {
+// 			ContainerCards.innerHTML =
+// 				'<div class="sin-datos">Esta búsqueda no arrojó ningún resultado.</div>';
+// 			console.log(err);
+// 		});
+// };
+
 getPeliculas(baseUrl);
 
 //FUNCION PARA RENDERIZAR LAS CARDS
@@ -167,12 +191,12 @@ const mostrarFormEditar = (peli) => {
 	inputUrl.value = peli.url;
 
 	document.getElementById("card-detalle").style.display = "none";
-	containerForm.classList.remove("hidden");
+	document.body.classList.add("abrir-modal-form");
 };
 
 // FUNCION PARA CANCELAR EDITAR O AGREGAR PELICULA(GENERALIZADO PARA AMBAS)
 const cancelarEditarOAgregar = () => {
-	containerForm.classList.add("hidden");
+	document.body.classList.remove("abrir-modal-form");
 	if (document.getElementById("card-detalle")) {
 		document.getElementById("card-detalle").style.display = "flex";
 	} else {

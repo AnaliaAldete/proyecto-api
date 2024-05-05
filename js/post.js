@@ -6,7 +6,7 @@ const mostrarFormAgregar = () => {
 	formPeli.reset();
 	ContainerCards.innerHTML = "";
 	formPeli.setAttribute("data-modo", "agregar");
-	containerForm.classList.remove("hidden");
+	document.body.classList.add("abrir-modal-form");
 	ocultarFiltros();
 };
 //EVENTO PARA MOSTRAR FORM AGERGAR

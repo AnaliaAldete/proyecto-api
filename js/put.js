@@ -30,6 +30,7 @@ const confirmarEditar = () => {
 formPeli.addEventListener("submit", (e) => {
 	e.preventDefault();
 	const modo = formPeli.getAttribute("data-modo");
+	document.body.classList.remove("abrir-modal-form");
 	if (modo === "editar") {
 		containerForm.classList.add("hidden");
 		confirmarEditar();

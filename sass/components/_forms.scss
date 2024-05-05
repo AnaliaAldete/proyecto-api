@@ -1,17 +1,35 @@
+//ESTILOS VENTANA MODAL FORM
+.abrir-modal-form .modal-cover-form {
+	display: block;
+}
+
+.abrir-modal-form .container-form {
+	display: block;
+}
+.modal-cover-form {
+	display: none;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	z-index: 200;
+	background-color: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(4px);
+}
+
 //ESTILOS DE FORMULARIO AGREGAR O EDITAR PELI
 .container-form {
-	position: fixed;
-	z-index: 1;
-	width: 80%;
-	max-width: 500px;
-	max-height: 60vh;
-	overflow: auto;
+	display: none;
+	position: absolute;
+	z-index: 500;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	box-shadow: 5px 5px 15px gray, -5px -5px 15px gray;
-	padding: 20px;
+	padding: 30px;
 	background-color: $color-principal;
 	border-radius: 15px;
 	form {
-		position: relative;
 		color: $color-secundario;
 		display: flex;
 		flex-direction: column;
@@ -32,19 +50,6 @@
 			justify-content: center;
 		}
 	}
-}
-
-.container-form::-webkit-scrollbar {
-	width: 6px;
-}
-
-.container-form::-webkit-scrollbar-track {
-	background: transparent;
-}
-
-.container-form::-webkit-scrollbar-thumb {
-	background-color: #888;
-	border-radius: 4px;
 }
 
 //ESTILOS DE FORMULARIO DE FILTROS

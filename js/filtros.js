@@ -115,6 +115,5 @@ btnResetFiltros.addEventListener("click", (e) => {
 	urlObject.delete("genero");
 	urlObject.delete("anio");
 	urlObject.delete("premio");
-	console.log(urlObject);
 	getPeliculas(baseUrl);
 });
