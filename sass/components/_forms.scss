@@ -1,12 +1,15 @@
 //ESTILOS VENTANA MODAL FORM
-.abrir-modal-form .modal-cover-form {
+body.abrir-modal-form {
+	overflow: hidden;
+}
+.abrir-modal-form .modal-cover {
 	display: block;
 }
 
 .abrir-modal-form .container-form {
 	display: block;
 }
-.modal-cover-form {
+.modal-cover {
 	display: none;
 	width: 100vw;
 	height: 100vh;
@@ -26,20 +29,29 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	box-shadow: 5px 5px 15px gray, -5px -5px 15px gray;
-	padding: 30px;
+	padding: 20px;
 	background-color: $color-principal;
 	border-radius: 15px;
 	form {
 		color: $color-secundario;
 		display: flex;
 		flex-direction: column;
-		gap: 20px;
+		gap: 10px;
+		@include breakpoint(xs) {
+			gap: 20px;
+		}
 		.container-input {
 			display: flex;
-			gap: 10px;
+			flex-direction: column;
+			gap: 5px;
 			align-items: center;
+			@include breakpoint(xs) {
+				gap: 10px;
+				flex-direction: row;
+			}
 			input,
 			textarea {
+				min-width: 280px;
 				padding: 5px;
 				flex: 1;
 			}

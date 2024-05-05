@@ -1,29 +1,40 @@
-//ESTILOS DE MODAL DE ADVERTENCIA ELIMINAR PELI
-.container-modal {
+//ESTILOS VENTANA MODAL ADVERTENCIA
+body.abrir-modal-advertencia {
+	overflow: hidden;
+}
+.abrir-modal-advertencia .modal-cover {
+	display: block;
+}
+
+.abrir-modal-advertencia .container-modal-advertencia {
+	display: block;
+}
+
+.container-modal-advertencia {
 	color: white;
-	background-color: black;
-	position: fixed;
-	z-index: 1;
+	display: none;
+	position: absolute;
+	z-index: 500;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	box-shadow: 5px 5px 15px gray, -5px -5px 15px gray;
 	padding: 20px;
 	background-color: $color-principal;
 	border-radius: 15px;
-	max-width: 90%;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-.modal {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-	p {
-		text-align: center;
-	}
-	div {
+	.modal {
 		display: flex;
-		justify-content: center;
-		gap: 10px;
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+		min-width: 300px;
+		p {
+			text-align: center;
+		}
+		div {
+			display: flex;
+			justify-content: center;
+			gap: 10px;
+		}
 	}
 }

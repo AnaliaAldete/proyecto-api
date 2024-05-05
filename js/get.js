@@ -2,7 +2,7 @@
 const ContainerCards = document.getElementById("container-cards");
 const containerSpinner = document.getElementById("container-spinner");
 const containerForm = document.getElementById("container-form");
-const containerModal = document.getElementById("container-modal");
+const containerModal = document.getElementById("container-modal-advertencia");
 //input del form
 const inputName = document.getElementById("input-nombre");
 const inputDescripcion = document.getElementById("input-descripcion");
@@ -171,7 +171,7 @@ const renderDetallePeli = (peli) => {
 		document
 			.getElementById("btn-eliminar-peli")
 			.addEventListener("click", () => {
-				containerModal.classList.remove("hidden");
+				document.body.classList.add("abrir-modal-advertencia");
 				document.getElementById("card-detalle").style.display = "none";
 			});
 	}, 2000);

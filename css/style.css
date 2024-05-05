@@ -333,7 +333,11 @@ form button:hover {
   gap: 10px;
 }
 
-.abrir-modal-form .modal-cover-form {
+body.abrir-modal-form {
+  overflow: hidden;
+}
+
+.abrir-modal-form .modal-cover {
   display: block;
 }
 
@@ -341,7 +345,7 @@ form button:hover {
   display: block;
 }
 
-.modal-cover-form {
+.modal-cover {
   display: none;
   width: 100vw;
   height: 100vh;
@@ -360,7 +364,7 @@ form button:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 5px 5px 15px gray, -5px -5px 15px gray;
-  padding: 30px;
+  padding: 20px;
   background-color: rgb(0, 0, 0);
   border-radius: 15px;
 }
@@ -368,15 +372,28 @@ form button:hover {
   color: rgb(255, 215, 0);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
+}
+@media (min-width: 576px) {
+  .container-form form {
+    gap: 20px;
+  }
 }
 .container-form form .container-input {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  gap: 5px;
   align-items: center;
+}
+@media (min-width: 576px) {
+  .container-form form .container-input {
+    gap: 10px;
+    flex-direction: row;
+  }
 }
 .container-form form .container-input input,
 .container-form form .container-input textarea {
+  min-width: 280px;
   padding: 5px;
   flex: 1;
 }
@@ -434,31 +451,42 @@ form button:hover {
   left: 50%;
 }
 
-.container-modal {
+body.abrir-modal-advertencia {
+  overflow: hidden;
+}
+
+.abrir-modal-advertencia .modal-cover {
+  display: block;
+}
+
+.abrir-modal-advertencia .container-modal-advertencia {
+  display: block;
+}
+
+.container-modal-advertencia {
   color: white;
-  background-color: black;
-  position: fixed;
-  z-index: 1;
+  display: none;
+  position: absolute;
+  z-index: 500;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   box-shadow: 5px 5px 15px gray, -5px -5px 15px gray;
   padding: 20px;
   background-color: rgb(0, 0, 0);
   border-radius: 15px;
-  max-width: 90%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
-
-.modal {
-  position: relative;
+.container-modal-advertencia .modal {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
+  min-width: 300px;
 }
-.modal p {
+.container-modal-advertencia .modal p {
   text-align: center;
 }
-.modal div {
+.container-modal-advertencia .modal div {
   display: flex;
   justify-content: center;
   gap: 10px;
