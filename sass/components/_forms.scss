@@ -66,6 +66,7 @@ body.abrir-modal-form {
 
 //ESTILOS DE FORMULARIO DE FILTROS
 .container-filtros {
+	display: flex;
 	color: $color-terciario;
 	flex-direction: column;
 	gap: 10px;

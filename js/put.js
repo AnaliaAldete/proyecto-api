@@ -1,6 +1,5 @@
 //FUNCION PARA CONFIRMAR EDITAR PELI
 const confirmarEditar = () => {
-	//hacer validacion para que no se suba un campo vacio
 	const peliEditada = {
 		name: inputName.value,
 		descripcion: inputDescripcion.value,

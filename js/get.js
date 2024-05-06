@@ -38,29 +38,6 @@ const getPeliculas = (fetchUrl) => {
 		.catch((err) => console.log(err));
 };
 
-// const getPeliculas = (fetchUrl) => {
-// 	fetch(fetchUrl)
-// 		.then((res) => {
-// 			if (res.ok) {
-// 				return res.json();
-// 			} else {
-// 				throw new Error("No se encontraron datos");
-// 			}
-// 		})
-// 		.then((data) => {
-// 			if (data && data.length > 0) {
-// 				renderCards(data);
-// 			} else {
-// 				throw new Error("No se encontraron datos");
-// 			}
-// 		})
-// 		.catch((err) => {
-// 			ContainerCards.innerHTML =
-// 				'<div class="sin-datos">Esta búsqueda no arrojó ningún resultado.</div>';
-// 			console.log(err);
-// 		});
-// };
-
 getPeliculas(baseUrl);
 
 //FUNCION PARA RENDERIZAR LAS CARDS
