@@ -127,7 +127,7 @@ const renderDetallePeli = (peli) => {
 		        <p>Lanzamiento: ${anio}</p>
 		        <p>Género: ${genero}</p>
 		        <p>Director: ${director}</p>
-		        <p>Actores principales: ${actoresPrincipales}</p>
+		        <p>Actores principales: ${actoresPrincipales.join(", ")}</p>
 		        <p>Calificación: ${calificacion}</p>
                 <div class="container-btn">
 			        <button class="btn-editar-peli" id="btn-editar-peli" data-cardId="${id}">Editar</button>

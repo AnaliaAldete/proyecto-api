@@ -17,11 +17,14 @@ const agregarPeli = () => {
 	const nuevaPeli = {
 		name: inputName.value,
 		descripcion: inputDescripcion.value,
-		anio: inputAnio.value,
+		anio: Number(inputAnio.value),
 		genero: inputGenero.value,
 		director: inputDirector.value,
-		actoresPrincipales: [inputActores.value],
-		calificacion: inputCalificacion.value,
+		actoresPrincipales: inputActores.value
+			.split(/,\s*|;\s*| /)
+			.map((actor) => actor.trim())
+			.filter((actor) => actor !== ""),
+		calificacion: Number(inputCalificacion.value),
 		url: inputUrl.value,
 	};
 	fetch(baseUrl, {
@@ -39,6 +42,7 @@ const agregarPeli = () => {
 		.then((data) => {
 			if (data) {
 				getPeliculas(baseUrl);
+				getOption();
 			} else {
 				alert("ocurrio el siguiente error");
 			}
