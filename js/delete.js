@@ -13,6 +13,7 @@ btnAceptarEliminar.addEventListener("click", () => {
 		.then((data) => {
 			document.body.classList.remove("abrir-modal-advertencia");
 			getPeliculas(baseUrl);
+			getOption();
 		})
 		.catch((err) => console.log(err));
 });
