@@ -25,6 +25,7 @@ const agregarPeli = () => {
 			.map((actor) => actor.trim())
 			.filter((actor) => actor !== ""),
 		calificacion: Number(inputCalificacion.value),
+		premio: inputPremio.value,
 		url: inputUrl.value,
 	};
 	fetch(baseUrl, {

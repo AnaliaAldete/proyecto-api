@@ -11,6 +11,7 @@ const inputAnio = document.getElementById("input-anio");
 const inputDirector = document.getElementById("input-director");
 const inputActores = document.getElementById("input-actores");
 const inputCalificacion = document.getElementById("input-calificacion");
+const inputPremio = document.getElementById("input-premio");
 const inputUrl = document.getElementById("input-url");
 //formularios
 const formPeli = document.getElementById("form-peli");
@@ -113,6 +114,7 @@ const renderDetallePeli = (peli) => {
 			director,
 			actoresPrincipales,
 			calificacion,
+			premio,
 		} = peli;
 		ContainerCards.innerHTML = `
     <div id="card-detalle" class="card-detalle">
@@ -129,6 +131,7 @@ const renderDetallePeli = (peli) => {
 		        <p>Director: ${director}</p>
 		        <p>Actores principales: ${actoresPrincipales.join(", ")}</p>
 		        <p>Calificación: ${calificacion}</p>
+                <p>Calificación: ${premio}</p>
                 <div class="container-btn">
 			        <button class="btn-editar-peli" id="btn-editar-peli" data-cardId="${id}">Editar</button>
 			        <button class="btn-eliminar-peli" id="btn-eliminar-peli">Eliminar</button>
@@ -165,6 +168,7 @@ const mostrarFormEditar = (peli) => {
 	inputDirector.value = peli.director;
 	inputActores.value = peli.actoresPrincipales;
 	inputCalificacion.value = peli.calificacion;
+	inputPremio.value = peli.premio;
 	inputUrl.value = peli.url;
 
 	document.getElementById("card-detalle").style.display = "none";
